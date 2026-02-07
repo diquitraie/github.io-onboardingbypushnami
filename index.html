@@ -22,6 +22,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Space Grotesk', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -58,13 +62,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 7vw;
+      padding: 22px 7vw;
       box-shadow: 0 10px 30px rgba(73, 35, 171, 0.08);
     }
 
     nav .brand {
       font-weight: 700;
       letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
     }
 
     nav ul {
@@ -75,7 +85,7 @@
       padding: 0;
     }
 
-    nav a {
+    nav ul a {
       text-decoration: none;
       color: var(--text);
       font-weight: 500;
@@ -83,15 +93,16 @@
       border-radius: 10px;
       transition: all 0.2s ease;
       position: relative;
+      font-size: 15px;
     }
 
-    nav a:hover,
-    nav a:focus {
+    nav ul a:hover,
+    nav ul a:focus {
       color: var(--accent);
       background: rgba(73, 35, 171, 0.08);
     }
 
-    nav a::after {
+    nav ul a::after {
       content: "";
       position: absolute;
       left: 10px;
@@ -105,10 +116,18 @@
       border-radius: 999px;
     }
 
-    nav a:hover::after,
-    nav a:focus::after {
+    nav ul a:hover::after,
+    nav ul a:focus::after {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      display: inline-block;
+      flex-shrink: 0;
+      object-fit: contain;
     }
 
     main {
@@ -267,6 +286,10 @@
       margin-top: 70px;
     }
 
+    section {
+      scroll-margin-top: 120px;
+    }
+
     .section h2 {
       margin-bottom: 12px;
       font-size: 28px;
@@ -294,12 +317,6 @@
     .tile p {
       margin: 0;
       color: var(--muted);
-    }
-
-    .tile:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 44px rgba(73, 35, 171, 0.12);
-      border-color: rgba(73, 35, 171, 0.16);
     }
 
     .list {
@@ -394,16 +411,20 @@
         height: 40px;
       }
     }
+
   </style>
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
   <nav>
-    <div class="brand">Pushnami Ads Onboarding Hub</div>
+    <a class="brand" href="#home">
+      <img class="logo-mark" src="index.png" alt="Pushnami logo">
+      Pushnami Ads Onboarding Hub
+    </a>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="https://pushnami.com" target="_blank" rel="noopener">About</a></li>
-      <li><a href="#ads">Pushnami Ads</a></li>
+      <li><a href="pushnami-ads.html">Pushnami Ads</a></li>
       <li><a href="#best">Best Practices</a></li>
     </ul>
   </nav>
@@ -425,42 +446,24 @@
           <div class="timeline-item">
             <div class="step">1</div>
             <div class="content">
-              <h3>Turn on capture</h3>
-              <p>Enable the one-click subscribe prompt so visitors can opt in without emails or forms.</p>
+              <h3>Pushnami Ads Overview</h3>
+              <p>Learn more about how our platform operates.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="step">2</div>
             <div class="content">
-              <h3>Send your first push</h3>
-              <p>Use the drag-and-drop builder or a ready template to schedule a welcome or promo message.</p>
+              <h3>Make your first campaign</h3>
+              <p>Make your first campaign happen through our Platform.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="step">3</div>
             <div class="content">
-              <h3>Deliver everywhere</h3>
-              <p>Your message reaches subscribers even when they are off your site or app.</p>
+              <h3>Adapt our best practices</h3>
+              <p>Get guides on how to build your best campaigns from Pushnami.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <h2>About this workspace</h2>
-      <div class="grid">
-        <div class="tile">
-          <h3>Why it exists</h3>
-          <p>Keep every new teammate aligned on the quickest path to value with zero guesswork.</p>
-        </div>
-        <div class="tile">
-          <h3>Who it serves</h3>
-          <p>Marketing, product, and ops starters who need a concise launchpad, not a binder.</p>
-        </div>
-        <div class="tile">
-          <h3>How to use it</h3>
-          <p>Move top to bottom; finish the quickstart, launch an ad, then dig into the best practices library.</p>
         </div>
       </div>
     </section>
