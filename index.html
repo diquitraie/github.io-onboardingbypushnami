@@ -470,23 +470,29 @@
       }
 
       .nav-right ul {
-        display: none;
-        position: absolute;
+        list-style: none;
+        position: fixed;
+        top: 0;
         right: 0;
-        top: calc(100% + 12px);
+        width: 240px;
+        height: 100vh;
+        margin: 0;
+        padding: 72px 18px 18px;
         background: var(--surface);
-        border: 1px solid rgba(73, 35, 171, 0.12);
-        border-radius: 14px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        padding: 12px;
+        border-left: 1px solid rgba(73, 35, 171, 0.12);
+        box-shadow: -12px 0 30px rgba(0, 0, 0, 0.18);
+        display: flex;
         flex-direction: column;
-        gap: 10px;
-        min-width: 210px;
+        gap: 14px;
+        transform: translateX(100%);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        opacity: 0;
         z-index: 15;
       }
 
       .nav-right.open ul {
-        display: flex;
+        transform: translateX(0);
+        opacity: 1;
       }
 
       nav ul a {
@@ -564,7 +570,7 @@
       Pushnami Ads Onboarding Hub
     </a>
     <div class="nav-right">
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">☰</button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">|||</button>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="pushnami-ads.html">Pushnami Ads</a></li>
