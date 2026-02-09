@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pushnami Ads - Campaign Guide</title>
+  <title>Pushnami Ads - Best Practices</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -52,6 +51,14 @@
       align-items: center;
       gap: 10px;
       font-size: 18px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      display: inline-block;
+      flex-shrink: 0;
+      object-fit: contain;
     }
 
     nav ul {
@@ -99,14 +106,6 @@
       transform: translateY(0);
     }
 
-    .logo-mark {
-      width: 26px;
-      height: 26px;
-      display: inline-block;
-      flex-shrink: 0;
-      object-fit: contain;
-    }
-
     main { padding: 60px 7vw 90px; position: relative; }
 
     .hero {
@@ -130,15 +129,11 @@
     }
 
     h1 { font-size: 36px; line-height: 1.15; margin: 16px 0 12px; }
+    .muted { color: var(--muted); max-width: 680px; }
 
-    .muted { color: var(--muted); max-width: 640px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 32px;
-    }
+    .section { margin-top: 50px; }
+    .section h2 { margin: 0 0 12px; font-size: 26px; }
+    .section p { margin: 0 0 12px; color: var(--muted); }
 
     .card {
       background: var(--surface);
@@ -148,51 +143,28 @@
       box-shadow: 0 14px 34px rgba(73, 35, 171, 0.07);
     }
 
-    .card h3 { margin: 0 0 8px; }
-    .card p { margin: 0; color: var(--muted); }
-
-    .list { margin: 0; padding-left: 18px; color: var(--muted); display: grid; gap: 8px; }
-
-    .cta {
-      display: flex;
+    figure {
+      margin: 0;
+      display: grid;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 18px;
-      border-radius: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    figure img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(73, 35, 171, 0.12);
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(73, 35, 171, 0.25);
+    figcaption {
+      font-size: 14px;
+      color: var(--muted);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 36px rgba(73, 35, 171, 0.3);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
     }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(29, 27, 47, 0.1);
-      color: var(--text);
-    }
-
-    .section { margin-top: 60px; }
-    .section h2 { margin: 0 0 10px; font-size: 26px; }
-    .section p { margin: 0 0 8px; color: var(--muted); }
 
     @media (max-width: 700px) {
       nav ul { gap: 12px; }
@@ -218,55 +190,42 @@
   <main>
     <section class="hero">
       <div>
-        <div class="badge">Pushnami Ads</div>
-        <h1>Build a campaign in minutes.</h1>
-        <p class="muted">Follow these essential fields to create a campaign. Everything here is straight from the Pushnami Ads help guide, condensed for a fast start.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="https://help.pushnami.com/docs/pushnami-ads-documentation/creating-a-campaign/" target="_blank" rel="noopener">View full help</a>
-          <a class="btn btn-ghost" href="index.html#home">Back to home</a>
-        </div>
-      </div>
-      <div class="card">
-        <h3>At a glance</h3>
-        <ul class="list">
-          <li>Click "Add Campaign" on your dashboard to start.</li>
-          <li>Name is internal only; your audience never sees it.</li>
-          <li>U.S. sending only; segment by State and Device (Desktop, Mobile, Tablet, Other).</li>
-          <li>Schedule start defaults to today; optional end date; add active days/hours as needed.</li>
-          <li>Times use Central Time (CST, GMT-6).</li>
-          <li>Set Default Bid; minimum allowed bid is $0.10.</li>
-          <li>Optional: Daily Spend Limit to warn as you near the cap.</li>
-          <li>Click "Create Campaign" to launch or pause anytime later.</li>
-        </ul>
+        <div class="badge">Best Practices</div>
+        <h1>Use proven ad patterns without changing the source material.</h1>
+        <p class="muted">Below are the exact creative examples provided. Each stays unaltered; use them as visual references while you build campaigns.</p>
       </div>
     </section>
 
     <section class="section">
-      <h2>What to fill in</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>General settings</h3>
-          <p>Choose a campaign name for your own reference. It does not appear to subscribers.</p>
-        </div>
-        <div class="card">
-          <h3>Audience rules</h3>
-          <p>Send within the USA only. Use dropdowns to target by state and device (Desktop, Mobile, Tablet, Other); default is All.</p>
-        </div>
-        <div class="card">
-          <h3>Schedule</h3>
-          <p>Start date auto-sets to today; change it if needed. End date is optional. Add Active Hours to pick days and exact times; toggle off All Day to set start and end times. All hours are CST (GMT-6).</p>
-        </div>
-        <div class="card">
-          <h3>Budget</h3>
-          <p>Default Bid is the starting bid across sites; minimum is $0.10 and can be raised or lowered later. Set a Daily Spend Limit if you want alerts as you near your budget.</p>
-        </div>
+      <h2>Sweeps / Promotional</h2>
+      <p class="muted">Sample creatives and messaging for sweepstakes or promotional pushes.</p>
+      <div class="card">
+        <figure>
+          <img src="best-sweeps.png" alt="Sweeps and promotional campaign sample creatives and previews">
+          <figcaption>Provided creative reference for sweeps/promotional campaigns.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section">
-      <h2>Finish and launch</h2>
+      <h2>Insurance</h2>
+      <p class="muted">Sample creatives and messaging for insurance-related pushes.</p>
       <div class="card">
-        <p>After those fields are set, click "Create Campaign". You can pause or adjust the campaign at any time.</p>
+        <figure>
+          <img src="best-insurance.png" alt="Insurance campaign sample creatives and previews">
+          <figcaption>Provided creative reference for insurance campaigns.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Total Drive / Anti-virus</h2>
+      <p class="muted">Sample creatives and messaging for storage or anti-virus themed pushes.</p>
+      <div class="card">
+        <figure>
+          <img src="best-antivirus.png" alt="Total Drive and anti-virus campaign sample creatives and previews">
+          <figcaption>Provided creative reference for Total Drive / anti-virus campaigns.</figcaption>
+        </figure>
       </div>
     </section>
   </main>
