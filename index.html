@@ -101,6 +101,7 @@
       align-items: center;
       gap: 12px;
       margin-left: auto;
+      position: relative;
     }
 
     nav ul a {
@@ -130,9 +131,64 @@
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       color: var(--text);
+      padding: 0;
     }
 
     .toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(73, 35, 171, 0.16);
+      border-color: rgba(73, 35, 171, 0.25);
+    }
+
+    .toggle .icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      background: currentColor;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+            .toggle .sun {
+      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='4.5'/><g stroke='currentColor' stroke-width='2' stroke-linecap='round'><line x1='12' y1='2.25' x2='12' y2='5'/><line x1='12' y1='19' x2='12' y2='21.75'/><line x1='4.1' y1='4.1' x2='6.1' y2='6.1'/><line x1='17.9' y1='17.9' x2='19.9' y2='19.9'/><line x1='2.25' y1='12' x2='5' y2='12'/><line x1='19' y1='12' x2='21.75' y2='12'/><line x1='4.1' y1='19.9' x2='6.1' y2='17.9'/><line x1='17.9' y1='6.1' x2='19.9' y2='4.1'/></g></svg>");
+      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='4.5'/><g stroke='currentColor' stroke-width='2' stroke-linecap='round'><line x1='12' y1='2.25' x2='12' y2='5'/><line x1='12' y1='19' x2='12' y2='21.75'/><line x1='4.1' y1='4.1' x2='6.1' y2='6.1'/><line x1='17.9' y1='17.9' x2='19.9' y2='19.9'/><line x1='2.25' y1='12' x2='5' y2='12'/><line x1='19' y1='12' x2='21.75' y2='12'/><line x1='4.1' y1='19.9' x2='6.1' y2='17.9'/><line x1='17.9' y1='6.1' x2='19.9' y2='4.1'/></g></svg>");
+    }
+
+
+
+                .toggle .moon {
+      display: none;
+      background: #f5d259;
+      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M16.75 3.25a9.5 9.5 0 1 0 2.6 17.5 8.6 8.6 0 1 1-2.6-17.5Z'/></svg>");
+      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M16.75 3.25a9.5 9.5 0 1 0 2.6 17.5 8.6 8.6 0 1 1-2.6-17.5Z'/></svg>");
+    }
+
+
+
+
+
+    .toggle.is-dark .sun { display: none; }
+    .toggle.is-dark .moon { display: block; }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(73, 35, 171, 0.15);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--text);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .menu-toggle:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 24px rgba(73, 35, 171, 0.16);
       border-color: rgba(73, 35, 171, 0.25);
@@ -401,16 +457,49 @@
     }
 
     @media (max-width: 700px) {
-      nav ul {
-        gap: 12px;
-      }
-
       nav {
         padding: 16px 18px;
       }
 
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .nav-right {
+        position: relative;
+      }
+
+      .nav-right ul {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 12px);
+        background: var(--surface);
+        border: 1px solid rgba(73, 35, 171, 0.12);
+        border-radius: 14px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        padding: 12px;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 210px;
+        z-index: 15;
+      }
+
+      .nav-right.open ul {
+        display: flex;
+      }
+
+      nav ul a {
+        font-size: 16px;
+        display: block;
+      }
+
+      main {
+        padding: 32px 20px 60px;
+      }
+
       .hero h1 {
-        font-size: 34px;
+        font-size: 28px;
       }
 
       .timeline {
@@ -475,13 +564,14 @@
       Pushnami Ads Onboarding Hub
     </a>
     <div class="nav-right">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">☰</button>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="pushnami-ads.html">Pushnami Ads</a></li>
         <li><a href="best-practices-topics.html">Best Practices</a></li>
         <li><a href="https://pushnami.com" target="_blank" rel="noopener">About</a></li>
       </ul>
-      <button class="toggle" id="mode-toggle" aria-label="Toggle color mode">☀</button>
+      <button class="toggle" id="mode-toggle" aria-label="Toggle color mode"><span class="icon sun" aria-hidden="true"></span><span class="icon moon" aria-hidden="true"></span></button>
     </div>
   </nav>
 
@@ -574,15 +664,25 @@
     })();
 
     (() => {
+      const menuBtn = document.getElementById('menu-toggle');
+      const navRight = document.querySelector('.nav-right');
+      menuBtn.addEventListener('click', () => {
+        navRight.classList.toggle('open');
+        const open = navRight.classList.contains('open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
       const toggle = document.getElementById('mode-toggle');
       const root = document.documentElement;
       const setMode = (mode) => {
         if (mode === 'dark') {
           root.classList.add('dark');
-          toggle.textContent = '🌙';
+          toggle.classList.add('is-dark');
+          toggle.setAttribute('aria-label', 'Switch to light mode');
         } else {
           root.classList.remove('dark');
-          toggle.textContent = '☀';
+          toggle.classList.remove('is-dark');
+          toggle.setAttribute('aria-label', 'Switch to dark mode');
         }
         localStorage.setItem('pn-mode', mode);
       };
