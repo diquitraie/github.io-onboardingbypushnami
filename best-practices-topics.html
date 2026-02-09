@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pushnami Ads - Campaign Guide</title>
+  <title>Pushnami Ads - Best Practices</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -29,7 +29,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -63,6 +62,14 @@
       align-items: center;
       gap: 10px;
       font-size: 18px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      display: inline-block;
+      flex-shrink: 0;
+      object-fit: contain;
     }
 
     nav ul {
@@ -115,14 +122,6 @@
       border-color: rgba(73, 35, 171, 0.25);
     }
 
-    .logo-mark {
-      width: 26px;
-      height: 26px;
-      display: inline-block;
-      flex-shrink: 0;
-      object-fit: contain;
-    }
-
     main { padding: 60px 7vw 90px; position: relative; }
 
     .hero {
@@ -146,12 +145,11 @@
     }
 
     h1 { font-size: 36px; line-height: 1.15; margin: 16px 0 12px; }
-
-    .muted { color: var(--muted); max-width: 640px; }
+    .muted { color: var(--muted); max-width: 700px; }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
       margin-top: 32px;
     }
@@ -162,70 +160,44 @@
       padding: 18px;
       border: 1px solid rgba(73, 35, 171, 0.08);
       box-shadow: 0 14px 34px rgba(73, 35, 171, 0.07);
+      display: grid;
+      gap: 10px;
     }
 
-    .card h3 { margin: 0 0 8px; }
+    .card h3 { margin: 0; }
     .card p { margin: 0; color: var(--muted); }
-
-    .list { margin: 0; padding-left: 18px; color: var(--muted); display: grid; gap: 8px; }
-
-    .cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 18px;
-      border-radius: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
       font-weight: 700;
       text-decoration: none;
       border: none;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: rgba(73, 35, 171, 0.08);
+      color: var(--accent);
+      box-shadow: 0 12px 28px rgba(73, 35, 171, 0.12);
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(73, 35, 171, 0.25);
-    }
-
-    .btn-primary:hover {
+    .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 38px rgba(73, 35, 171, 0.3);
+      box-shadow: 0 16px 34px rgba(73, 35, 171, 0.18);
     }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(29, 27, 47, 0.1);
-      color: var(--text);
-    }
-
-    .btn-ghost:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(73, 35, 171, 0.18);
-    }
-
-    .section { margin-top: 60px; }
-    .section h2 { margin: 0 0 10px; font-size: 26px; }
-    .section p { margin: 0 0 8px; color: var(--muted); }
-
-    :root.dark body { color: var(--text); background: var(--bg); }
-    :root.dark nav { background: rgba(24, 20, 40, 0.92); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
-    :root.dark .btn-primary { box-shadow: 0 12px 32px rgba(143, 123, 255, 0.35); }
-    :root.dark .card { background: var(--surface); border-color: rgba(143, 123, 255, 0.16); box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28); }
-    :root.dark .btn-ghost { background: rgba(255, 255, 255, 0.08); color: var(--text); border-color: rgba(143, 123, 255, 0.2); }
 
     @media (max-width: 700px) {
       nav ul { gap: 12px; }
       nav { padding: 18px 18px; }
       h1 { font-size: 30px; }
     }
+
+    :root.dark body { color: var(--text); background: var(--bg); }
+    :root.dark nav { background: rgba(24, 20, 40, 0.92); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+    :root.dark .card { background: var(--surface); border-color: rgba(143, 123, 255, 0.16); box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28); }
+    :root.dark .btn { background: rgba(143, 123, 255, 0.12); color: var(--text); box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28); }
   </style>
 </head>
 <body>
@@ -248,55 +220,34 @@
   <main>
     <section class="hero">
       <div>
-        <div class="badge">Pushnami Ads</div>
-        <h1>Powerful Platform with User Friendly Features</h1>
-        <p class="muted">Get started with our powerful platform with user-friendly UI. Experience the best of Pushnami, made just for you.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="https://ads.pushnami.com/signin" target="_blank" rel="noopener">Sign in to your Pushnami Ads Account now</a>
-          <a class="btn btn-ghost" href="index.html#home">Back to home</a>
-        </div>
-      </div>
-      <div class="card">
-        <h3>At a glance</h3>
-        <ul class="list">
-          <li>Click "Add Campaign" on your dashboard to start.</li>
-          <li>Name is internal only; your audience never sees it.</li>
-          <li>U.S. sending only; segment by State and Device (Desktop, Mobile, Tablet, Other).</li>
-          <li>Schedule start defaults to today; optional end date; add active days/hours as needed.</li>
-          <li>Times use Central Time (CST, GMT-6).</li>
-          <li>Set Default Bid; minimum allowed bid is $0.10.</li>
-          <li>Optional: Daily Spend Limit to warn as you near the cap.</li>
-          <li>Click "Create Campaign" to launch or pause anytime later.</li>
-        </ul>
+        <div class="badge">Best Practices</div>
+        <h1>Pick a topic to level up your Pushnami campaigns.</h1>
+        <p class="muted">Choose the guide you need: how to start, how to set up, how to optimize, and a creative gallery to copy what works.</p>
       </div>
     </section>
 
-    <section class="section">
-      <h2>What to fill in</h2>
+    <section style="margin-top:40px;">
       <div class="grid">
         <div class="card">
-          <h3>General settings</h3>
-          <p>Choose a campaign name for your own reference. It does not appear to subscribers.</p>
+          <h3>How to start a campaign?</h3>
+          <p>Step-by-step to create your first campaign quickly and confidently.</p>
+          <a class="btn" href="pushnami-ads.html">Start now</a>
         </div>
         <div class="card">
-          <h3>Audience rules</h3>
-          <p>Send within the USA only. Use dropdowns to target by state and device (Desktop, Mobile, Tablet, Other); default is All.</p>
+          <h3>Best practices on setting up campaigns</h3>
+          <p>Targeting, scheduling, and budgeting fundamentals for consistent performance.</p>
+          <a class="btn" href="pushnami-ads.html">Setup tips</a>
         </div>
         <div class="card">
-          <h3>Schedule</h3>
-          <p>Start date auto-sets to today; change it if needed. End date is optional. Add Active Hours to pick days and exact times; toggle off All Day to set start and end times. All hours are CST (GMT-6).</p>
+          <h3>Setting up Creatives</h3>
+          <p>Pick winning creative patterns and adapt them for your next campaign.</p>
+          <a class="btn" href="creatives-guide.html">Open creative guide</a>
         </div>
         <div class="card">
-          <h3>Budget</h3>
-          <p>Default Bid is the starting bid across sites; minimum is $0.10 and can be raised or lowered later. Set a Daily Spend Limit if you want alerts as you near your budget.</p>
+          <h3>Source Optimization</h3>
+          <p>Prioritize top-performing sources and bids to improve ROI over time.</p>
+          <a class="btn" href="creatives-guide.html">See examples</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Finish and launch</h2>
-      <div class="card">
-        <p>After those fields are set, click "Create Campaign". You can pause or adjust the campaign at any time.</p>
       </div>
     </section>
   </main>

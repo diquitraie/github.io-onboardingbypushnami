@@ -18,6 +18,16 @@
              linear-gradient(135deg, #f8f9ff 0%, #eef2fb 100%);
     }
 
+    :root.dark {
+      --accent: #8f7bff;
+      --text: #e9e7ff;
+      --muted: #b3afd6;
+      --surface: #1f1c33;
+      --bg: radial-gradient(80% 80% at 20% 20%, rgba(143, 123, 255, 0.16), transparent 55%),
+             radial-gradient(80% 80% at 80% 10%, rgba(73, 35, 171, 0.16), transparent 50%),
+             linear-gradient(135deg, #121020 0%, #1a1630 100%);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -62,6 +72,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
       padding: 22px 7vw;
       box-shadow: 0 10px 30px rgba(73, 35, 171, 0.08);
     }
@@ -85,6 +96,13 @@
       padding: 0;
     }
 
+    .nav-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
     nav ul a {
       text-decoration: none;
       color: var(--text);
@@ -92,7 +110,6 @@
       padding: 8px 10px;
       border-radius: 10px;
       transition: all 0.2s ease;
-      position: relative;
       font-size: 15px;
     }
 
@@ -102,24 +119,23 @@
       background: rgba(73, 35, 171, 0.08);
     }
 
-    nav ul a::after {
-      content: "";
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 4px;
-      height: 2px;
-      background: var(--accent);
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      border-radius: 999px;
+    .toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(73, 35, 171, 0.15);
+      background: rgba(255, 255, 255, 0.8);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      color: var(--text);
     }
 
-    nav ul a:hover::after,
-    nav ul a:focus::after {
-      opacity: 1;
-      transform: translateY(0);
+    .toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(73, 35, 171, 0.16);
+      border-color: rgba(73, 35, 171, 0.25);
     }
 
     .logo-mark {
@@ -183,7 +199,7 @@
       font-weight: 700;
       box-shadow: 0 10px 30px rgba(73, 35, 171, 0.25);
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -192,8 +208,8 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 36px rgba(73, 35, 171, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 38px rgba(73, 35, 171, 0.3);
     }
 
     .btn-ghost {
@@ -204,6 +220,16 @@
       border-radius: 14px;
       font-weight: 600;
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(73, 35, 171, 0.18);
     }
 
     .card {
@@ -288,6 +314,33 @@
 
     section {
       scroll-margin-top: 120px;
+    }
+
+    :root.dark body {
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    :root.dark nav {
+      background: rgba(24, 20, 40, 0.92);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    :root.dark .btn-primary {
+      box-shadow: 0 12px 32px rgba(143, 123, 255, 0.35);
+    }
+
+    :root.dark .card,
+    :root.dark .tile {
+      background: var(--surface);
+      border-color: rgba(143, 123, 255, 0.16);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    :root.dark .btn-ghost {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border-color: rgba(143, 123, 255, 0.2);
     }
 
     .section h2 {
@@ -421,12 +474,15 @@
       <img class="logo-mark" src="index.png" alt="Pushnami logo">
       Pushnami Ads Onboarding Hub
     </a>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="pushnami-ads.html">Pushnami Ads</a></li>
-      <li><a href="best-practices.html">Best Practices</a></li>
-      <li><a href="https://pushnami.com" target="_blank" rel="noopener">About</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="pushnami-ads.html">Pushnami Ads</a></li>
+        <li><a href="best-practices-topics.html">Best Practices</a></li>
+        <li><a href="https://pushnami.com" target="_blank" rel="noopener">About</a></li>
+      </ul>
+      <button class="toggle" id="mode-toggle" aria-label="Toggle color mode">☀</button>
+    </div>
   </nav>
 
   <main>
@@ -437,6 +493,7 @@
         <p>You're almost there! Let's start your Pushnami journey today!</p>
         <div class="actions">
           <a class="btn-primary" href="https://calendly.com/joshpushnami/meetjosh" target="_blank" rel="noopener">Connect with Us</a>
+          <a class="btn-ghost" href="pushnami-ads.html">Get Started</a>
         </div>
       </div>
 
@@ -514,6 +571,31 @@
 
       bindMobile();
       window.addEventListener('resize', bindMobile);
+    })();
+
+    (() => {
+      const toggle = document.getElementById('mode-toggle');
+      const root = document.documentElement;
+      const setMode = (mode) => {
+        if (mode === 'dark') {
+          root.classList.add('dark');
+          toggle.textContent = '🌙';
+        } else {
+          root.classList.remove('dark');
+          toggle.textContent = '☀';
+        }
+        localStorage.setItem('pn-mode', mode);
+      };
+      const stored = localStorage.getItem('pn-mode');
+      if (stored) {
+        setMode(stored);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setMode('dark');
+      }
+      toggle.addEventListener('click', () => {
+        const next = root.classList.contains('dark') ? 'light' : 'dark';
+        setMode(next);
+      });
     })();
   </script>
 </body>
